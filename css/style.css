@@ -1,29 +1,4 @@
-body {margin: 0;}
-
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-ul.topnav li {float: left;}
-
-ul.topnav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul.topnav li a:hover:not(.active) {background-color: #111;}
-
-ul.topnav li a.active {background-color: #4CAF50;}
-
-ul.topnav li.right {float: right;}
-
+body {margin: 0; width: 100%; height: auto;}
 
 input[type=text], input[type=password], input[type=email], select {
   width: 100%;
@@ -52,6 +27,136 @@ input[type=submit]:hover {
 
 div {
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
+}
+.navbar{
+  position: relative;
+  width : 100%;
+  height: auto;
+}
+.logo{
+  position: relative;
+  float: left;
+  margin: auto;
+}
+.menu{
+  position: relative;
+  float: right;
+  margin: auto;
+}
+.menu ul{
+  list-style : none;
+}
+hr{
+  color: red;
+}
+.content{
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content-actor{
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.content h1{
+ text-align: center;
+}
+.content h2{
+ text-align: center;
+}
+.partnersAll{
+  flex: auto;
+}
+
+
+.presentation{
+  flex: auto;
+}
+.partners{
+flex: auto;
+border: 1px solid;
+}
+.partnerLoop{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  margin-bottom : 1%;
+  border: 1px solid;
+}
+.partnerSelected{
+  display: flex;
+  justify-content: center;
+}
+.partnersContent{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.partnerSelect{
+  align-self: auto;
+}
+.contentPartners{
+  align-self: auto;
+}
+.contentPartners p{
+  margin: auto;
+  overflow-wrap : break-word;
+}
+.imgPartner{
+  flex-grow: 1;
+  max-width: 25%;
+  height: auto;
+}
+.next{
+flex-grow: 1;
+margin-top : 7%;
+}
+.button {
+  background-color: #FFF;
+  border: 1px solid red;
+  border-radius: 30px;
+  color: red;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: red; /* Green */
+  color: white;
+}
+
+/* The alert message box */
+.alert {
+ padding: 20px;
+ background-color: #f44336; /* Red */
+ color: white;
+ margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+ margin-left: 15px;
+ color: white;
+ font-weight: bold;
+ float: right;
+ font-size: 22px;
+ line-height: 20px;
+ cursor: pointer;
+ transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+ color: black;
 }

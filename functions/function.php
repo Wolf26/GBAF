@@ -16,6 +16,7 @@ if(isset($_SESSION['id'])){
   while($getUser = $userInfo->fetch()){
     $username = $getUser['user'];
     $firstname = $getUser['firstname'];
+    $lastname = $getUser['lastname'];
   }
 
 }

@@ -1,6 +1,16 @@
 <?php
 require_once('functions/function.php');
 ?>
+<?php
+if(isset($_SESSION['message'])){
+  ?>
+<div class="alert">
+ <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+ <?php echo $_SESSION['message'];?>
+</div>
+<?php
+}
+ ?>
 <form action="valide_register.php" method="POST">
   <fieldset>
     <legend>Inscription</legend>

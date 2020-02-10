@@ -1,4 +1,13 @@
-
+<?php
+if(isset($_SESSION['message_login'])){
+  ?>
+<div class="alert">
+ <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+ <?php echo $_SESSION['message_login'];?>
+</div>
+<?php
+}
+ ?>
 <form action="login.php" method="post">
   <fieldset>
     <legend>Connexion</legend>
