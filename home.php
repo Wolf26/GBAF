@@ -26,14 +26,25 @@ require_once('functions/function.php'); ?>
 $showPartners = $db->query('SELECT * FROM partners');
 
 while($partners = $showPartners->fetch()){
+  $resume = strip_tags($partners['resume']);
+  if (strlen($resume) > 200) {
+
+    // truncate string
+    $stringCut = substr($resume, 0, 200);
+    $endPoint = strrpos($stringCut, ' ');
+
+    //if the string doesn't contain any space then it will cut without word basis.
+    $resume = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+    $resume .= '...';
+    }
       echo '<div class="partnerLoop">';
       echo '<img src="'.$partners['logo'].'" class="imgPartner" />';
       echo '<div class="contentPartners">';
       echo '<h3>'.$partners['name'].'</h3>';
-      echo '<p>'.$partners['resume'].'</p>';
+      echo '<p>'.$resume.'</p>';
       echo '</div>';
       echo '<div class="next">';
-      echo '<a href="#" class="button">Lire la suite</a>';
+      echo '<a href="?page=seePartners&id='.$partners['id'].'" class="button">Lire la suite</a>';
       echo '</div>';
       echo '</div>';
 }

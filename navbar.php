@@ -7,7 +7,7 @@ require_once('./functions/function.php');
  </div>
  <div class="menu">
    <?php
-    echo $firstname.' '.$lastname;
+    echo '<a href="index.php?page=changeParameters&id='.$userId.'">'.$firstname.' '.$lastname.'</a>';
     ?>
     <ul>
       <li><a href="logout.php">Déconnexion</a></li>

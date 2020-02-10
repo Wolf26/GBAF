@@ -16,6 +16,6 @@ if(isset($_SESSION['message_login'])){
   <label for="password">Mot de passe</label>
   <input type="password" name="password" id="password" placeholder="*****">
   <input type="submit" value="Connexion">
-  <a href="./forgot_password.php">Mot de passe oublié ?</a> - <a href="?page=register">Inscription</a>
+  <a href="./index.php?page=resetpassword">Mot de passe oublié ?</a> - <a href="?page=register">Inscription</a>
   </fieldset>
 </form>

@@ -34,7 +34,7 @@ if(isset($_SESSION['message'])){
   </select>
 
   <label for="secretanswer">Réponse à la question secrète</label>
-  <input type="text" name="secretanswer" id="secretanswer" placeholder="Réponse à votre question secrète" / required>
+  <input type="text" name="secretanswer" id="secretanswer" placeholder="Réponse à votre question secrète" required />
 
   <input type="submit" value="S'enregister">
   </fieldset>

@@ -14,9 +14,13 @@ if(isset($_SESSION['id'])){
   $userInfo = $db->prepare('SELECT * FROM users WHERE user = ?');
   $userInfo->execute(array($_SESSION['id']));
   while($getUser = $userInfo->fetch()){
-    $username = $getUser['user'];
-    $firstname = $getUser['firstname'];
-    $lastname = $getUser['lastname'];
+    $username       = $getUser['user'];
+    $firstname      = $getUser['firstname'];
+    $lastname       = $getUser['lastname'];
+    $userId         = $getUser['id'];
+    $password       = $getUser['password'];
+    $secretquestion = $getUser['secretquestion'];
+    $secretanswer   = $getUser['secretanswer'];
   }
 
 }

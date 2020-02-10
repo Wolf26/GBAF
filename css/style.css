@@ -27,7 +27,7 @@ input[type=submit]:hover {
 
 div {
   border-radius: 5px;
-  padding: 20px;
+  padding: 15px;
 }
 .navbar{
   position: relative;
@@ -83,6 +83,56 @@ hr{
 flex: auto;
 border: 1px solid;
 }
+.commentLoop{
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  margin-bottom : 1%;
+  border: 1px solid;
+  width: 95%;
+}
+/* Style the button that is used to open and close the collapsible content */
+.topButtons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap : wrap;
+}
+.collapsible {
+  background-color: #FFF;
+  border: 1px solid red;
+  border-radius: 30px;
+  color: red;
+  cursor: pointer;
+  padding: 18px;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.collapsible:hover {
+  background-color: red; /* Green */
+  color: white;
+}
+.active, .collapsible:hover {
+  background-color: red;
+  color: #FFF;
+}
+
+.commentForm {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+.comment{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin-bottom : 1%;
+}
 .partnerLoop{
   display: flex;
   flex-direction:row;
@@ -90,15 +140,7 @@ border: 1px solid;
   margin-bottom : 1%;
   border: 1px solid;
 }
-.partnerSelected{
-  display: flex;
-  justify-content: center;
-}
-.partnersContent{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
+
 .partnerSelect{
   align-self: auto;
 }
@@ -143,7 +185,12 @@ margin-top : 7%;
  color: white;
  margin-bottom: 15px;
 }
-
+.alert-success {
+ padding: 20px;
+ background-color: green; /* Red */
+ color: white;
+ margin-bottom: 15px;
+}
 /* The close button */
 .closebtn {
  margin-left: 15px;

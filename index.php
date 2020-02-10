@@ -28,6 +28,13 @@ require_once('functions/function.php');
           header('Location: ?page=');
         }
         break;
+        case 'changeParameters':
+        if(isset($_GET['id'])){
+          require_once('functions/setParameters.php');
+        }else{
+          header('Location: ?page=');
+        }
+        break;
         case 'postComment':
         require_once('functions/postComment.php');
         break;
@@ -42,6 +49,9 @@ require_once('functions/function.php');
         case 'register':
         require_once('register.php');
         break;
+        case'resetpassword':
+        require_once('resetpassword.php');
+        break;
         default:
         require_once('default.php');
         break;
@@ -49,5 +59,6 @@ require_once('functions/function.php');
     }
 
     ?>
+    <script src="js/script.js"></script>
 </body>
 </html>
