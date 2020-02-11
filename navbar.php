@@ -3,7 +3,7 @@ require_once('./functions/function.php');
  ?>
 <nav class="navbar">
  <div class="logo">
-   <a href="./index.php"><img src="img/logo.png" style="max-width: 50%; height: auto;"/></a>
+   <a href="./index.php"><img src="img/logo.png" style="max-width: 50%; height: auto;" alt="GBAF - Groupe banque assurance français"/></a>
  </div>
  <div class="menu">
    <?php

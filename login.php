@@ -5,14 +5,14 @@ if(isset($_POST)){
   $userName           = htmlspecialchars($_POST['username']);
   $passwordBeforeHash = htmlspecialchars($_POST['password']);
 
-  $foundUser  = $db->prepare('SELECT * from users WHERE user = ?');
+  $foundUser  = $db->prepare('SELECT * from users WHERE email = ?');
   $foundUser->execute(array($userName));
   $userExist = $foundUser->rowCount();
   if($userExist == 1){
     $data = $foundUser->fetch();
     $password = password_verify($passwordBeforeHash, $data['password']);
     if($password == $data['password']){
-      $_SESSION['id'] = $data['user'];
+      $_SESSION['id'] = $data['email'];
       header('Location: index.php');
     }else{
       $_SESSION['message_login'] = 'Mot de passe incorrect.';

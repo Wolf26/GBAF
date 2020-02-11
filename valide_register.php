@@ -12,9 +12,9 @@ $searchFor = $db->prepare('SELECT * FROM users WHERE user = ?');
 $searchFor->execute(array($username));
 $searchForFound = $searchFor->rowCount();
 if($searchForFound < 1){
-  $newUser = $db->prepare('INSERT INTO users(user, password, firstname, lastname, secretquestion, secretanswer) VALUES (:user, :password, :firstname, :lastname, :secretquestion, :secretanswer)');
+  $newUser = $db->prepare('INSERT INTO users(email, password, firstname, lastname, secretquestion, secretanswer) VALUES (:email, :password, :firstname, :lastname, :secretquestion, :secretanswer)');
   $newUser->execute(array(
-    'user' => $username,
+    'email' => $username,
     'password' => $password,
     'firstname' => $firstname,
     'lastname' => $lastname,
@@ -22,7 +22,7 @@ if($searchForFound < 1){
     'secretanswer' => $secretanswer
   ));
 $_SESSION['id'] = $username;
-header('Location: home.php');
+header('Location: index.php');
 exit;
 }else{
   $_SESSION['message'] = 'Compte utilisateur existant';

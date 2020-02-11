@@ -11,10 +11,10 @@ try{
 }
 
 if(isset($_SESSION['id'])){
-  $userInfo = $db->prepare('SELECT * FROM users WHERE user = ?');
+  $userInfo = $db->prepare('SELECT * FROM users WHERE email = ?');
   $userInfo->execute(array($_SESSION['id']));
   while($getUser = $userInfo->fetch()){
-    $username       = $getUser['user'];
+    $username       = $getUser['email'];
     $firstname      = $getUser['firstname'];
     $lastname       = $getUser['lastname'];
     $userId         = $getUser['id'];

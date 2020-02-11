@@ -2,7 +2,7 @@
 require_once('functions/function.php');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <title>GBAF - Groupement des banques </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

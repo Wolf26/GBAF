@@ -14,7 +14,7 @@ require_once('functions/function.php'); ?>
       <li>La Banque Postale.</li>
     </ul>
     Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler de la même façon pour gérer près de 80 millions de comptes sur le territoire national.Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la réglementation financière française. Sa mission est de promouvoir l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des pouvoirs publics.
-</p>
+  </p>
 <img src="img/logo.png" style="max-width: 100%; height: auto;">
 <hr>
 </div>
@@ -38,7 +38,7 @@ while($partners = $showPartners->fetch()){
     $resume .= '...';
     }
       echo '<div class="partnerLoop">';
-      echo '<img src="'.$partners['logo'].'" class="imgPartner" />';
+      echo '<img src="'.$partners['logo'].'" class="imgPartner" alt="'.$partners['name'].'"/>';
       echo '<div class="contentPartners">';
       echo '<h3>'.$partners['name'].'</h3>';
       echo '<p>'.$resume.'</p>';

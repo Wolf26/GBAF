@@ -2,7 +2,7 @@
 require_once('function.php');
 $id = (int)$_GET['id'];
 if (isset($_SESSION['most_recent_activity']) &&
-    (time() -   $_SESSION['most_recent_activity'] > 10)) {
+    (time() -   $_SESSION['most_recent_activity'] > 20)) {
 
  unset($_SESSION['success']);
 
@@ -16,13 +16,15 @@ $showPartners = $db->query('SELECT * FROM partners WHERE id='.$id.'');
 while($partners = $showPartners->fetch()){
       echo '<div class="partnerSelected">';
       echo '<div class="partnerSelect">';
-      echo '<img src="'.$partners['logo'].'" />';
+      echo '<img src="'.$partners['logo'].'" alt="'.$partners['name'].'" />';
       echo '</div>';
+      echo '<hr />';
       echo '</div>';
       echo '<div class="partnersContent">';
       echo '<div class="contentPartners">';
       echo '<h2>'.$partners['name'].'</h2>';
       echo '<p>'.$partners['resume'].'</p>';
+      echo '<hr />';
       echo '</div>';
       echo '</div>';
   }
@@ -41,26 +43,25 @@ while($partners = $showPartners->fetch()){
    ?>
 
 <?php
-//Prévoir ajout des commentaires/Modération ? + Count des commentaires et condition pour dire nop, t'as pas le droit de poster ici :D
-$comment = $db->query("SELECT * FROM post INNER JOIN users ON post.id_user = users.id WHERE id_partners='$id' ");
+$comment = $db->query("SELECT * FROM posts INNER JOIN users ON posts.id_users = users.id WHERE id_partners='$id' ");
 $countComment = $comment->rowCount();
-$likeVote = $db->query("SELECT * FROM vote WHERE id_partners='$id' AND vote='1'");
-$dislikeVote = $db->query("SELECT * FROM vote WHERE id_partners='$id' AND vote='-1'");
+$likeVote = $db->query("SELECT * FROM votes WHERE id_partners='$id' AND vote > 0");
+$dislikeVote = $db->query("SELECT * FROM votes WHERE id_partners='$id' AND vote < 0");
 $likeCount = $likeVote->rowCount();
 $dislikeCount = $dislikeVote->rowCount();
 echo '<div class="commentLoop">';
 echo '<div class="topButtons">';
+echo '<div class="numberComments">';
 if($countComment <= 1){
   echo '<h2>'.$countComment.' COMMENTAIRE </h2><br />';
 }else{
   echo '<h2>'.$countComment.' COMMENTAIRES </h2><br />';
 }
-
-$comment = $db->query("SELECT * FROM post INNER JOIN users ON post.id_user = users.id WHERE id_partners='$id' AND id_user='$userId' ");
-$countComment = $comment->rowCount();
-if($countComment > 0){
-  echo '';
-}else{
+echo '</div>';
+echo '<div class="votesButtons">';
+echo '<img src="./img/like.png" alt="Like" style="width: 20%; height: auto;"/>'.$likeCount.'  <img src="./img/dislike.png" alt="Dislike" style="width: 20%; height: auto;" />'.$dislikeCount.'';
+echo '</div>';
+echo'<div class="commentButton">';
   echo '<button type="button" class="collapsible">Laisser un commentaire</button>';
   echo '<div class="commentForm">';
   echo "<form action='functions/comment.php?id=".$id."' method='post'>";
@@ -74,9 +75,11 @@ if($countComment > 0){
   echo "</fieldset>";
   echo "</form>";
   echo '</div>';
-}
-echo 'Il y a '.$likeCount.' likes et '.$dislikeCount.' dislikes.';
 echo "</div>";
+echo "</div>";
+/*
+$comment = $db->query("SELECT * FROM post WHERE id_partners='$id' AND id_user='$userId' ");
+$countComment = $comment->rowCount();*/
 if($countComment > 0){
   while($com = $comment->fetch()){
     echo '<div class="comment">';
@@ -86,7 +89,7 @@ if($countComment > 0){
     echo '</div>';
   }
 }else{
-  echo '<h3>Pas encore de commentaire.';
+  echo '<h3>Pas encore de commentaire.</h3>';
 }
 
 echo '</div>';

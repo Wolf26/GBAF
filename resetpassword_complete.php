@@ -11,7 +11,7 @@ if(isset($_POST)){
     if($getUser['user'] == $email){
       if($getUser['secretquestion'] == $secretquestion){
         if($getUser['secretanswer'] == $secretanswer){
-          $updateUser = $db->prepare("UPDATE users SET password = ? WHERE user='".$email."'");
+          $updateUser = $db->prepare("UPDATE users SET password = ? WHERE email='".$email."'");
           $updateUser->execute(array($password));
           $_SESSION['success'] = 'Mot de passe mis à jour !';
           header('Location: index.php?page=resetpassword');

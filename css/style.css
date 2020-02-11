@@ -29,6 +29,11 @@ div {
   border-radius: 5px;
   padding: 15px;
 }
+
+hr{
+  color: red;
+}
+/****HEADER***/
 .navbar{
   position: relative;
   width : 100%;
@@ -47,9 +52,8 @@ div {
 .menu ul{
   list-style : none;
 }
-hr{
-  color: red;
-}
+/***FIN HEADER****/
+/****HOME PAGE****/
 .content{
   position: relative;
   float: left;
@@ -57,81 +61,15 @@ hr{
   flex-direction: column;
   justify-content: space-between;
 }
-.content-actor{
-  position: relative;
-  float: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
 .content h1{
  text-align: center;
 }
 .content h2{
  text-align: center;
 }
-.partnersAll{
-  flex: auto;
-}
-
-
-.presentation{
-  flex: auto;
-}
 .partners{
 flex: auto;
 border: 1px solid;
-}
-.commentLoop{
-  display: flex;
-  flex-direction:column;
-  flex-wrap: wrap;
-  margin-bottom : 1%;
-  border: 1px solid;
-  width: 95%;
-}
-/* Style the button that is used to open and close the collapsible content */
-.topButtons{
-  display: flex;
-  flex-direction: row;
-  flex-wrap : wrap;
-}
-.collapsible {
-  background-color: #FFF;
-  border: 1px solid red;
-  border-radius: 30px;
-  color: red;
-  cursor: pointer;
-  padding: 18px;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-}
-
-.collapsible:hover {
-  background-color: red; /* Green */
-  color: white;
-}
-.active, .collapsible:hover {
-  background-color: red;
-  color: #FFF;
-}
-
-.commentForm {
-  padding: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-}
-.comment{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  margin-bottom : 1%;
 }
 .partnerLoop{
   display: flex;
@@ -140,9 +78,10 @@ border: 1px solid;
   margin-bottom : 1%;
   border: 1px solid;
 }
-
-.partnerSelect{
-  align-self: auto;
+.imgPartner{
+  flex-grow: 1;
+  max-width: 25%;
+  height: auto;
 }
 .contentPartners{
   align-self: auto;
@@ -150,11 +89,6 @@ border: 1px solid;
 .contentPartners p{
   margin: auto;
   overflow-wrap : break-word;
-}
-.imgPartner{
-  flex-grow: 1;
-  max-width: 25%;
-  height: auto;
 }
 .next{
 flex-grow: 1;
@@ -177,7 +111,91 @@ margin-top : 7%;
   background-color: red; /* Green */
   color: white;
 }
+/***FIN HOME PAGE****/
 
+
+
+.content-actor{
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.partnersAll{
+  flex: auto;
+}
+.presentation{
+  flex: auto;
+}
+.commentLoop{
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  margin-bottom : 1%;
+  border: 1px solid;
+  width: 95%;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.topButtons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap : wrap;
+}
+.collapsible {
+  background-color: #FFF;
+  border: 1px solid red;
+  border-radius: 30px;
+  color: red;
+  cursor: pointer;
+  padding: 18px;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.collapsible:hover {
+  background-color: red; /* Green */
+  color: white;
+}
+.active, .collapsible:hover {
+  background-color: red;
+  color: #FFF;
+}
+.commentForm {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+.comment{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin-bottom : 1%;
+}
+.partnerSelect{
+  align-self: auto;
+  margin-left: 30%;
+}
+.numberComments{
+  align-self: flex-start;
+  order: 1;
+  flex-grow: 8;
+}
+.votesButtons{
+  align-self: flex-end;
+  order: 3;
+  margin-right: -11%;
+}
+.commentButton{
+  align-self: flex-end;
+  order: 2;
+}
 /* The alert message box */
 .alert {
  padding: 20px;
@@ -206,4 +224,93 @@ margin-top : 7%;
 /* When moving the mouse over the close button */
 .closebtn:hover {
  color: black;
+}
+@media only screen and (min-width: 600px) and (max-width: 1280px) {
+  .partnerSelect{
+    align-self: auto;
+    margin-left: 0;
+  }
+
+  .partnerLoop{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    margin-bottom : 1%;
+    border: 1px solid;
+  }
+  .next {
+    flex-grow: 1;
+    margin-top: 7%;
+    width: 100%;
+    align-self: auto;
+  }
+  .imgPartner {
+    flex-grow: 1;
+    max-width: 40%;
+    height: auto;
+  }
+
+  .numberComments{
+    align-self: flex-start;
+    order: 1;
+    flex-grow: 8;
+  }
+  .votesButtons{
+    align-self: flex-end;
+    order: 3;
+    margin-right: -11%;
+  }
+  .commentButton{
+    align-self: flex-end;
+    order: 2;
+    margin-right: -18%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  div {
+    border-radius: 5px;
+  }
+  .showPartners{
+    padding: 15px !important;
+  }
+  .content-actor{
+    padding: 0px;
+  }
+  .contentPartners{
+    padding: 0 0 0 10px;
+  }
+  .partnersContent{
+    padding: 5px;
+  }
+  .navbar {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+  .logo{
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .menu{
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .menu ul{
+    list-style : none;
+  }
+  .imgPartner {
+    max-width: 100%;
+    height: auto;
+  }
+  .partnerSelect img{
+    width: 100%;
+  }
+  .partnerSelect{
+    align-self: auto;
+    margin-left: 0;
+  }
 }
