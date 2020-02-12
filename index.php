@@ -10,9 +10,7 @@ require_once('functions/function.php');
 </head>
 <body>
   <?php
-  if(isset($_SESSION['id'])){
           require_once('navbar.php');
-  }
    ?>
     <?php
     $page = $_GET['page'];
@@ -28,6 +26,12 @@ require_once('functions/function.php');
           header('Location: ?page=');
         }
         break;
+        case 'mentions':
+        require_once('mentions.php');
+        break;
+        case 'contact':
+        require_once('contact.php');
+        break;
         case 'changeParameters':
         if(isset($_GET['id'])){
           require_once('functions/setParameters.php');
@@ -40,6 +44,7 @@ require_once('functions/function.php');
         break;
         case 'setLike':
         require_once('functions/setLike.php');
+        break;
       }
     }else{
       switch($page){
@@ -55,10 +60,19 @@ require_once('functions/function.php');
         default:
         require_once('default.php');
         break;
+        case 'mentions':
+        require_once('mentions.php');
+        break;
+        case 'contact':
+        require_once('contact.php');
+        break;
       }
     }
 
     ?>
+    <div class="footer">
+      <a href="./index.php?page=mentions">Mentions légales</a> | <a href="./index.php?page=contact">Contact</a>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
